@@ -1,0 +1,9 @@
+.espaciado{
+    margin-top: 30px;
+}
+#espacio-izquierda{
+    margin-left: 15px;
+}
+#botoncito{
+    float: right;
+}
