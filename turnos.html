@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CO-Lavalle - Turnos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <script src="main.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">CO-Lavalle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="index.html">Home</a>
-            <a class="nav-item nav-link" href="profesionales.html">Profesionales</a>
-            <a class="nav-item nav-link active" href="turnos.html">Turnos<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="pacientes.html">Pacientes</a>
-          </div>
-        </div>
-    </nav>
-    <div class="container espaciado">
-        <h2>Turnos Otorgados</h2>
-        <table class="table espaciado">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Profesional</th>
-                <th scope="col">DNI</th>
-                <th scope="col">Paciente</th>
-                <th scope="col">DNI</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Motivo de Consulta</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Analía Malik</td>
-                <td>23491893</td>
-                <td>Jabob Thornton</td>
-                <td>25674123</td>
-                <td>10-05-2019</td>
-                <td>Extracción</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Marta Thornton</td>
-                <td>25674123</td>
-                <td>Larry Blue</td>
-                <td>40985443</td>
-                <td>25-04-2019</td>
-                <td>Tratamiento Conducto</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Leon Brown</td>
-                <td>20985443</td>
-                <td>Iris Lara</td>
-                <td>42985443</td>
-                <td>12-05-2019</td>
-                <td>Blanqueamiento</td>
-              </tr>
-            </tbody>
-        </table>
-        <br>
-    </div>
-    <div class="container espaciado">
-      <hr style="border-color: black">
-    </div>
-    <div class="container espaciado">
-        <h2>Nuevo Turno</h2><br>
-        <form>
 
-          <div class="form-group row"> 
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CO-Lavalle - Turnos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+</head>
+
+<body class="fondo">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">CO-Lavalle</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="index.html">Home</a>
+        <a class="nav-item nav-link" href="profesionales.html">Profesionales</a>
+        <a class="nav-item nav-link active" href="turnos.html">Turnos<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="pacientes.html">Pacientes</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container espaciado">
+    <h2>Turnos Otorgados <button type="button" class="btn btn-primary" id="botoncito" data-toggle="modal"
+      data-target="#AgregarTurno">Agregar</button></h2>
+    <table class="table espaciado" id="tablita">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="align-middle">Profesional</th>
+          <th scope="col" class="align-middle">DNI</th>
+          <th scope="col" class="align-middle">Paciente</th>
+          <th scope="col" class="align-middle">DNI</th>
+          <th scope="col" class="align-middle">Fecha</th>
+          <th scope="col" class="align-middle">Motivo de Consulta</th>
+          <th scope="col" class="align-middle">Editar / Eliminar</th>
+        </tr>
+      </thead>
+      <tbody id="tabla">
+        <tr>
+          <td class="align-middle">Analía Malik</td>
+          <td class="align-middle">23491893</td>
+          <td class="align-middle">Jabob Thornton</td>
+          <td class="align-middle">25674123</td>
+          <td class="align-middle">10-05-2019</td>
+          <td class="align-middle">Extracción</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+          <td class="align-middle">Marta Thornton</td>
+          <td class="align-middle">25674123</td>
+          <td class="align-middle">Larry Blue</td>
+          <td class="align-middle">40985443</td>
+          <td class="align-middle">25-04-2019</td>
+          <td class="align-middle">Tratamiento Conducto</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+          <td class="align-middle">Leon Brown</td>
+          <td class="align-middle">20985443</td>
+          <td class="align-middle">Iris Lara</td>
+          <td class="align-middle">42985443</td>
+          <td class="align-middle">12-05-2019</td>
+          <td class="align-middle">Blanqueamiento</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </div>
+
+  <!-- Modal Nuevo Turno -->
+  <div id="AgregarTurno" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Nuevo Turno</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
               <label class="col-sm-2 col-form-label">Paciente</label>
               <div class="col-sm-10">
                 <select class="custom-select">
-                <option selected>Selecccione el Paciente</option>
+                  <option selected id="pacienteSelec">Selecccione el Paciente</option>
                   <option value="1">Jabob Thornton, 25674123</option>
                   <option value="2">Larry Blue, 40985443</option>
                   <option value="3">Iris Lara, 42985443</option>
@@ -89,53 +102,52 @@
               </div>
             </div>
 
-            <div class="form-group row"> 
-                <label class="col-sm-2 col-form-label">Profesional</label>
-                <div class="col-sm-10">
-                  <select class="custom-select">
-                    <option selected>Selecccione el Profesional</option>
-                    <option value="1">Analía Malik, 23491893</option>
-                    <option value="2">Marta Thornton, 25674123</option>
-                    <option value="3">Leon Brown, 20985443</option>
-                  </select>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Profesional</label>
+              <div class="col-sm-10">
+                <select class="custom-select">
+                  <option selected id="profesionalSelec">Selecccione el Profesional</option>
+                  <option value="1">Analía Malik, 23491893</option>
+                  <option value="2">Marta Thornton, 25674123</option>
+                  <option value="3">Leon Brown, 20985443</option>
+                </select>
               </div>
             </div>
-        
-            <div class="form-group row"> 
-                <label class="col-sm-2 col-form-label">Motivo</label>
-                <div class="col-sm-10">
-                  <select class="custom-select">
-                    <option selected>Selecccione el Motivo</option>
-                    <option value="1">Extracción</option>
-                    <option value="2">Tratamiento Conducto</option>
-                    <option value="3">Blanqueamiento</option>
-                  </select>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Motivo</label>
+              <div class="col-sm-10">
+                <select class="custom-select">
+                  <option selected id="motivoSelec">Selecccione el Motivo</option>
+                  <option value="1">Extracción</option>
+                  <option value="2">Tratamiento Conducto</option>
+                  <option value="3">Blanqueamiento</option>
+                </select>
               </div>
             </div>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Fecha</label>
-            <div class="col-sm-10">
-              <input class="form-control" id="date" type="date" value="0000-00-00">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Fecha</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="date" type="date" value="0000-00-00" id="fechaSelec">
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
+            <div class="form-group row">
               <label class="col-sm-2 col-form-label">Hora</label>
               <div class="col-sm-10">
                 <input class="form-control" id="time" type="time" value="00:00">
               </div>
             </div>
-        
-          <br>
-          
+          </form>
+        </div>
+        <div class="modal-footer">
           <div class="container form-group">
-              <button type="submit" class="btn btn-primary" id="botoncito">Confirmar</button>
-            </div>
-            <br> <br>
-
+            <button type="button" class="btn btn-primary" id="botoncito">Confirmar</button>
           </div>
-        
-        </form>
+        </div>
+      </div>
+
     </div>
-    
+  </div>
 </body>
+
 </html>

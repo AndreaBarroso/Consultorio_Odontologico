@@ -7,3 +7,11 @@
 #botoncito{
     float: right;
 }
+
+#reajusteContent{
+    width: 106%;
+}
+
+.fondo{
+    background-color:#EEF0F0;
+}

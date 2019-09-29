@@ -1,102 +1,130 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CO-Lavalle - Pacientes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <script src="main.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CO-Lavalle - Pacientes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">CO-Lavalle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="index.html">Home</a>
-            <a class="nav-item nav-link" href="profesionales.html">Profesionales</a>
-            <a class="nav-item nav-link" href="turnos.html">Turnos</a>
-            <a class="nav-item nav-link active" href="pacientes.html">Pacientes<span class="sr-only">(current)</span></a>
+
+<body class="fondo">
+  <!-- Menú bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">CO-Lavalle</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="index.html">Home</a>
+        <a class="nav-item nav-link" href="profesionales.html">Profesionales</a>
+        <a class="nav-item nav-link" href="turnos.html">Turnos</a>
+        <a class="nav-item nav-link active" href="pacientes.html">Pacientes<span class="sr-only">(current)</span></a>
+      </div>
+    </div>
+  </nav>
+  <!-- Tabla con Pacientes -->
+  <div class="container espaciado">
+    <!-- Boton para abrir el modal-->
+    <h2>Pacientes <button type="button" class="btn btn-primary" id="botoncito" data-toggle="modal" data-target="#miModal">
+        Agregar
+      </button></h2>
+    <table class="table espaciado">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="align-middle">ID</th>
+          <th scope="col" class="align-middle">Nombre</th>
+          <th scope="col" class="align-middle">Apellido</th>
+          <th scope="col" class="align-middle">DNI</th>
+          <th scope="col" class="align-middle">Editar / Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="align-middle">1</th>
+          <td class="align-middle">Andrea</td>
+          <td class="align-middle">Barroso</td>
+          <td class="align-middle">41191873</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+          <th scope="row" class="align-middle">2</th>
+          <td class="align-middle">Jacob</td>
+          <td class="align-middle">Thornton</td>
+          <td class="align-middle">25674123</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+          <th scope="row" class="align-middle">3</th>
+          <td class="align-middle">Larry</td>
+          <td class="align-middle">Blue</td>
+          <td class="align-middle">40985443</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+        <tr>
+          <th scope="row" class="align-middle">3</th>
+          <td class="align-middle">Iris</td>
+          <td class="align-middle">Lara</td>
+          <td class="align-middle">42985443</td>
+          <td class="text-light align-middle"><button class="btn btn-warning">Editar</button> - <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--Modal Agregar Nuevo Paciente-->
+
+  <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Nuevo Paciente</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Nombre</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" placeholder="Nombre del Paciente">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Apellido</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" placeholder="Apellido del Paciente">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">DNI</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="number" maxlength="0" placeholder="DNI del Paciente">
+              </div>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <div class="container form-group">
+            <button type="button" class="btn btn-primary" id="botoncito">Confirmar</button>
           </div>
         </div>
-    </nav>
-    <div class="container espaciado">
-        <h2>Listado de pacientes</h2>
-        <table class="table espaciado">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">DNI</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Andrea</td>
-                <td>Barroso</td>
-                <td>41191873</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>25674123</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Blue</td>
-                <td>40985443</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Iris</td>
-                <td>Lara</td>
-                <td>42985443</td>
-              </tr>
-            </tbody>
-          </table>
+      </div>
     </div>
-    <div class="container espaciado">
-      <hr style="border-color: black">
-    </div>
-    <div class="container espaciado">
-        <h2>Nuevo Paciente</h2><br>
-        <form>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-10">
-              <input class="form-control" type="text" placeholder="Nombre del Paciente">
-            </div>
-          </div>
-        
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Apellido</label>
-            <div class="col-sm-10">
-              <input class="form-control" type="text" placeholder="Apellido del Paciente">
-            </div>
-          </div>
-        
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">DNI</label>
-            <div class="col-sm-10">
-              <input class="form-control" type="text" placeholder="DNI del Paciente">
-            </div>
-          </div>
-          <br>
-          <div class="container form-group">
-              <button type="submit" class="btn btn-primary" id="botoncito">Confirmar</button>
-            </div>
-            <br> <br>
-          </div>
-        
-        </form>
-    </div>
+  </div>
+  </div>
 </body>
+
 </html>
